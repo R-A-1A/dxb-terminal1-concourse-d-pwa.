@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#132b71"><meta name="description" content="DXB Staff Wayfinder reference PWA for Terminal 1 Concourse D">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon-192.svg" type="image/svg+xml">
+<title>DXB Staff Wayfinder | Terminal 1 Concourse D</title>
+<style>
+:root{--navy:#132b71;--yellow:#ffdf00;--ink:#18233d;--muted:#65718a;--bg:#f4f6fb;--line:#dfe5f0}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:var(--navy);color:white;border-top:10px solid var(--yellow);padding:18px max(16px,calc((100% - 980px)/2)) 20px}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:54px;height:54px}.brand h1{font-size:1.1rem;margin:0}.brand p{margin:3px 0 0;color:#dce5ff;font-size:.88rem}
+main{max-width:980px;margin:auto;padding:18px 14px 48px}.section-title{font-size:1rem;margin:22px 0 10px}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:15px;text-align:left;color:var(--ink);font:inherit;box-shadow:0 2px 8px #142b7110;cursor:pointer}.tile b{display:block;margin-top:6px}.tile span{font-size:1.5rem}
+.searchbox{display:flex;gap:8px;flex-wrap:wrap}.searchbox input,.searchbox select{min-width:0;flex:1;padding:13px;border:1px solid #cbd4e5;border-radius:11px;background:white;font:inherit}.count{color:var(--muted);font-size:.88rem;margin:12px 2px}
+.card{background:white;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}.cardtop{display:flex;justify-content:space-between;gap:8px;align-items:start}.gate{font-size:1.1rem;font-weight:750}.meta{font-size:.85rem;color:var(--muted)}.pill{background:#fff3a6;border-radius:99px;padding:5px 9px;font-size:.75rem;white-space:nowrap}
+.facilities{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.facility{background:#f5f7fc;border:1px solid #e2e7f1;border-radius:8px;padding:7px 9px;font-size:.85rem}
+.notice{padding:12px;border-radius:10px;background:#fff8cc;color:#4b4210;font-size:.85rem;line-height:1.45;margin-top:16px}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px}
+@media(min-width:650px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}.tile{min-height:110px}}
+</style></head><body>
+<header><div class="brand"><img src="./icon-192.svg" alt="DXB"><div><h1>DXB Staff Wayfinder</h1><p>Terminal 1 · Concourse D · Reference PWA</p></div></div></header>
+<main>
+<h2 class="section-title">Quick Tiles</h2>
+<div class="tiles">
+<button class="tile" data-action="community"><span>👥</span><b>Airport Community</b><small>Airport staff resources</small></button>
+<button class="tile" data-action="map"><span>🗺️</span><b>Express Map</b><small>Open map tools</small></button>
+<button class="tile" data-action="flight"><span>✈️</span><b>Pocket Flight</b><small>Flight information</small></button>
+<button class="tile" data-action="search"><span>🔎</span><b>Find a location</b><small>Search gates and facilities</small></button>
+</div>
+<h2 class="section-title" id="search-title">Search locations</h2>
+<div class="searchbox"><input id="search" type="search" placeholder="Search gate, shop, toilet, lounge…" autocomplete="off" aria-label="Search locations"><select id="category" aria-label="Filter by category"><option value="All">All categories</option><option>Gate</option><option>Restrooms</option><option>Food &amp; Drink</option><option>Shopping</option><option>Services</option></select></div>
+<div class="count" id="count" aria-live="polite"></div><div id="results"></div>
+<div class="notice"><b>Reference build:</b> Concourse D facility names are based on the supplied gate facility and lounge reference PDF. Map pins, flight feeds, and staff-community destinations need their intended URLs or service connections before they can be live.</div>
+</main><footer>DXB Staff Wayfinder · Separate Terminal 1 Concourse D project</footer>
+<script src="./app.js"></script>
+</body></html>
